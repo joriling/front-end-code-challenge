@@ -1,0 +1,30 @@
+@import '@fontsource/roboto'; /* Defaults to the "normal" weight (400) */
+@import '@fontsource/roboto/400.css'; /* Optional: specify the font weight */
+@import '@fontsource/roboto/700.css'; /* Optional: specify bold weight */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #9baec8;
+    font-family: Roboto, sans-serif;
+    line-height: 1.2;
+}
+
+button,
+input {
+    margin: 2px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}

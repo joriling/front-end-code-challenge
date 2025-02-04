@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
-import {Billboard} from '../models/types';
+import {Billboard} from '@app/models/types';
+import {DroneAPI} from '@app/models/Drone';
+import {API_BASE_URL} from '@app/utils/app';
 
 const BillboardDetailPage: React.FC = () => {
     const {id} = useParams<{id: string}>(); // Access route parameter "id"
@@ -11,7 +13,7 @@ const BillboardDetailPage: React.FC = () => {
         const fetchBillboardDetails = async () => {
             try {
                 const response = await axios.get<{billboard: Billboard}>(
-                    `http://localhost:4001/get-billboard?id=${id}`
+                    `${API_BASE_URL}/${DroneAPI.GET_BILLBOARD}?id=${id}`
                 );
                 setBillboard(response.data.billboard);
             } catch (error) {

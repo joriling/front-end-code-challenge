@@ -4,12 +4,13 @@ import {Billboard} from './models/types';
 import InstructionInput from './components/InstructionInput';
 import BillboardDetailPage from './components/BillboardDetailPage';
 import BillboardDetails from './components/BillboardDetails';
+import './App.css';
 
 const App: React.FC = () => {
     const [billboards, setBillboards] = useState<Billboard[]>([]);
 
     return (
-        <div>
+        <div className="container">
             <h1>Drone Dashboard</h1>
             <Routes>
                 {/* Main Dashboard Route */}

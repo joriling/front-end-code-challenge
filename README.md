@@ -54,3 +54,7 @@ yarn start
 ```
 
 The api will start running at `http://localhost:3000`.
+
+## For improvements
+
+-   enhancement on UI styling and UX

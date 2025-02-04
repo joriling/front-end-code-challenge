@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import {DroneAPI} from '../models/Drone';
 import {InstructDroneResponse} from '../models/types';
 import {Billboard} from 'src/api/helpers';
+import {DroneAPI} from '@app/models/Drone';
 import DroneControls from './DroneControls';
+import {API_BASE_URL} from '@app/utils/app';
 
 interface Props {
     setBillboards: React.Dispatch<React.SetStateAction<Billboard[]>>;
@@ -14,9 +15,10 @@ const InstructionInput: React.FC<Props> = ({setBillboards}) => {
     const sendInstructions = async () => {
         try {
             const response = await axios.get<InstructDroneResponse>(
-                `http://localhost:4001/${DroneAPI.SEND_INSTRUCTIONS}?instructions=${instructions}`
+                `${API_BASE_URL}/${DroneAPI.SEND_INSTRUCTIONS}?instructions=${instructions}`
             );
             setBillboards(response.data.billboards);
+            setInstructions('');
         } catch (error) {
             console.error('Error sending instructions:', error);
         }

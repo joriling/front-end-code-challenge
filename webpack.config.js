@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -11,6 +12,9 @@ module.exports = {
         publicPath: '/'
     },
     resolve: {
+        alias: {
+            '@app': path.resolve(__dirname, 'src/app')
+        },
         extensions: ['.tsx', '.ts', '.js']
     },
     module: {
@@ -38,6 +42,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html'
+        }),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify({REACT_APP_API_BASE_URL: 'http://localhost:4001'})
         })
     ],
     devServer: {

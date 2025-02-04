@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {DroneAPI} from '../models/Drone';
-
-import {Billboard, GetBillboardResponse} from '../models/types';
+import {Billboard, GetBillboardResponse} from '@app/models/types';
+import {API_BASE_URL} from '@app/utils/app';
 
 const BillboardDetails: React.FC = () => {
     const [billboardId, setBillboardId] = useState<string>('');
@@ -11,7 +11,7 @@ const BillboardDetails: React.FC = () => {
     const fetchBillboard = async () => {
         try {
             const response = await axios.get<GetBillboardResponse>(
-                `http://localhost:4001/${DroneAPI.GET_BILLBOARD}?id=${billboardId}`
+                `${API_BASE_URL}/${DroneAPI.GET_BILLBOARD}?id=${billboardId}`
             );
             setBillboard(response.data.billboard);
         } catch (error) {
