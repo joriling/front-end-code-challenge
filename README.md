@@ -42,3 +42,15 @@ For this code challenge, you are required to setup and create a simple React app
 -   please allocate 2 - 3 hours for this challenge
 -   please add clear instructions on how to run the React app
 -   please note down improvements in your instructions you would like to implement, or a list of things that need to be done to productionise this app
+
+## Setting up the Front-end
+
+```sh
+# install dependencies
+yarn install
+
+# Run the api
+yarn start
+```
+
+The api will start running at `http://localhost:3000`.

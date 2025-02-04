@@ -7,7 +7,8 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true
+        clean: true,
+        publicPath: '/'
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
@@ -40,8 +41,12 @@ module.exports = {
         })
     ],
     devServer: {
-        static: './dist',
-        port: 3000,
-        open: true
+        historyApiFallback: true, // Redirect unknown routes to index.html
+        static: {
+            directory: path.resolve(__dirname, 'dist')
+        },
+        compress: true, // Enable gzip compression
+        port: 3000, // The port your app runs on
+        hot: true // Enable hot module replacement
     }
 };
