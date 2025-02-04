@@ -53,7 +53,7 @@ yarn install
 yarn start
 ```
 
-The api will start running at `http://localhost:3000`.
+The front-end will start running at `http://localhost:3000`.
 
 ## For improvements
 
