@@ -4,6 +4,7 @@ import axios from 'axios';
 import {Billboard} from '@app/models/types';
 import {DroneAPI} from '@app/models/Drone';
 import {API_BASE_URL} from '@app/utils/app';
+import {Link} from 'react-router-dom';
 
 const BillboardDetailPage: React.FC = () => {
     const {id} = useParams<{id: string}>(); // Access route parameter "id"
@@ -47,6 +48,9 @@ const BillboardDetailPage: React.FC = () => {
                 <strong>Location:</strong> ({billboard.x}, {billboard.y})
             </p>
             <img src={billboard.image} alt="Billboard" />
+            <Link to="/">
+                <button className="btn-block">Back</button>
+            </Link>
         </div>
     );
 };
